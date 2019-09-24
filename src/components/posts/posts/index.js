@@ -1,7 +1,7 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from 'gatsby'
 import styled from 'styled-components'
-import { Feature, Post } from './index'
+import { Feature, Post } from '../index'
 
 const PostsWrapper = styled.section`
   margin-left: 258px;
@@ -24,7 +24,7 @@ export const postsQuery = () => {
             node {
               excerpt
               frontmatter {
-                date(formatString: "MMMM DD, YYYY")
+                date(formatString: "DD MMM YY")
                 title
                 slug
               }
@@ -39,6 +39,7 @@ export const postsQuery = () => {
 
 const Posts = () => {
   const postList = postsQuery()
+  console.log('postList:', postList)
   return (
     <PostsWrapper>
       <Feature />
@@ -47,10 +48,16 @@ const Posts = () => {
           ({
             node: {
               excerpt,
-              frontmatter: { title, slug, date }
+              frontmatter: { slug, title, date }
             }
           }) => (
-            <Post key={slug} title={title} date={date} excerpt={excerpt} />
+            <Post
+              key={slug}
+              title={title}
+              date={date}
+              excerpt={excerpt}
+              slug={slug}
+            />
           )
         )}
       </PostsSection>
