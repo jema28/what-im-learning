@@ -2,11 +2,26 @@
 
 _Building our design systems in code._
 
-## Utils
+## Contents
+1. [Utils](#utils)
+   - [Creating theme](#creating-theme)
+   - [Adding global styles](#adding-global-styles)
+2. [Elements](#elements)
+   - [Creating styled components](#creating-styled-components)
+   - [Adding nested styles](#adding-nested-styles)
+   - [Importing utils and elements](#importing-utils-elements)
+   - [Examples](#elements-examples)
+3. [Adding modifiers](#adding-modifiers)
+   - [Examples](#modifiers-examples)
+4. [Using elements/modifiers](#using-elements-modifiers)
+5. [Using global styles](#using-global-styles)
+6. [Extending styled components](#extended-styled-components)
+
+## Utils <a name="utils"></a>
 
 We'll start by creating our theme: colour, typography, spacing, shadows, global styles in utils folder and export them in an index.js file.
 
-### Creating theme
+### Creating theme <a name="creating-theme"></a>
 
 ```js
 // src/utils/colors.js
@@ -70,7 +85,7 @@ export const letter_spacing_negative = {
 }
 ```
 
-### Global.js
+### Adding global styles <a name="adding-global-styles"></a>
 
 1.  We access global style from styled components:
 
@@ -144,11 +159,11 @@ export * from './spacing'
 export * from './splitTitle'
 ```
 
-## Elements
+## Elements <a name="elements"></a>
 
 Next, we'll create our reusable elements such as typography and buttons.
 
-### Creating styled components
+### Creating styled components <a name="creating-styled-components"></a>
 
 To create styled components we use this syntax:
 
@@ -158,7 +173,7 @@ export const ElementName = styled.<element>`
 `
 ```
 
-### Adding nested styles
+### Adding nested styles <a name="adding-nested-styles"></a>
 
 You can add nested styles (like in sass) like this:
 
@@ -176,7 +191,7 @@ export const Link = styled.a`
 `
 ```
 
-### Importing utils and elements
+### Importing utils and elements <a name="importing-utils-elements"></a>
 
 Because we're exporting all utils in an index.js, we can import all utils we need in one import:
 
@@ -184,7 +199,7 @@ Because we're exporting all utils in an index.js, we can import all utils we nee
 import { typography, color, letter_spacing_negative } from '../../utils'
 ```
 
-### Examples
+### Examples <a name="elements-examples"></a>
 
 ```js
 // src/components/elements/typography.js
@@ -260,7 +275,7 @@ export const Button = styled.button`
 `
 ```
 
-## Adding modifiers
+## Adding modifiers <a name="adding-modifiers"></a>
 
 Once we've got our base elements we want to add colour and size modifiers.
 
@@ -293,7 +308,7 @@ export const Button = styled.button`
 `
 ```
 
-### Examples
+### Examples <a name="modifiers-examples"></a>
 
 ```js
 // src/components/elements/typography.js
@@ -440,7 +455,7 @@ export * from './typography'
 export * from './buttons'
 ```
 
-## Using elements/modifiers
+## Using elements/modifiers <a name="using-elements-modifiers"></a>
 
 1.  We now import our elements like this:
 
@@ -463,7 +478,7 @@ const Header = ({ pageTitle }) => {
 }
 ```
 
-## Using global styles
+## Using global styles <a name="using-global-styles"></a>
 
 In our main app/layout component we add our global style:
 
@@ -490,7 +505,7 @@ Layout.propTypes = {
 export default Layout
 ```
 
-## Extending styled components
+## Extending styled components <a name="extended-styled-components"></a>
 
 To add more properties to our styled components we extend them using this syntax:
 
