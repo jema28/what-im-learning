@@ -24,9 +24,12 @@ const COLOR_MODIFIERS = {
   dark: () => `
     color: ${secondary.dark}
   `,
-  darkest: () => `
+  darker: () => `
     color: ${secondary.darker}
-  `
+  `,
+  darkest: () => `
+  color: ${secondary.darkest}
+`
 }
 
 const SIZE_MODIFIERS = {
@@ -91,4 +94,8 @@ export const P = styled.p`
 
   ${applyStyleModifiers(COLOR_MODIFIERS)};
   ${applyStyleModifiers(SIZE_MODIFIERS)};
+`
+
+export const Span = styled.span`
+  ${applyStyleModifiers(COLOR_MODIFIERS)};
 `

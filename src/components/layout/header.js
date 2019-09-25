@@ -1,18 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { H1 } from '../elements'
-import { color, splitTitle } from '../../utils'
-
-const { secondary } = color
-
-const Title = styled.span`
-  color: ${secondary.medium};
-`
-
-const SubTitle = styled.span`
-  color: ${secondary.darkest};
-`
+import { H1, Span } from '../elements'
+import { splitTitle } from '../../utils'
 
 const Header = ({ pageTitle }) => {
   const { title, subtitle } = splitTitle(pageTitle)
@@ -20,7 +9,8 @@ const Header = ({ pageTitle }) => {
   return (
     <header>
       <H1>
-        <SubTitle>{subtitle}</SubTitle> <Title>{title}</Title>
+        <Span modifiers="darkest">{subtitle}</Span>{' '}
+        <Span modifiers="medium">{title}</Span>
       </H1>
     </header>
   )
